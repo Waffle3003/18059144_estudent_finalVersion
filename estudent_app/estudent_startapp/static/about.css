@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body,
+  input {
+    font-family: 'Verdana', sans-serif;
+    font-size: 14px;
+  }
+  
+  .terms_header {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      background-color: #ce5b38;
+      padding: 1.5%;
+      margin-right: 1%;
+      width: 100%;
+      float:left;
+  }
+
+  .terms_header h1 {
+      color: white;
+      position: relative;
+      text-align: center;
+  }
+
+  .go_back_button {
+      font-family: sans-serif;
+      font-size: 15px;
+      background: #ce5b38;
+      color: white;
+      position: relative;
+      top: 2px;
+  }
+
+  .terms_body h3 {
+      color: white;
+      font-family: sans-serif;
+  }
+
+  .terms_body p {
+      color: white;
+      font-family: sans-serif;
+  }

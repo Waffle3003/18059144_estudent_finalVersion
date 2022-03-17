@@ -1,0 +1,178 @@
+.mx-auto {
+    border-radius: 27%;
+    margin-top: 4pc;
+    position: sticky;
+    background-color: #ce5b38;
+    width: 70rem;
+    height: 37rem;
+}
+
+.mx-auto img {
+    position: absolute;
+    top: 150px;
+    left: 25px;
+    width: 27%;
+}
+
+.card-body {
+    position: relative;
+    background-color: #FCD6A5;
+    width: 50rem;
+    height: 37rem;
+    left: 20pc;
+}
+
+.register-login-box {
+    position: absolute;
+    height: 560px;
+    width: 760px;
+    top: 15px;
+} 
+
+.register-box {
+    background-color: #338F9A;
+    border-radius: 25px;
+    width: 355px;
+    height: 525px;
+}
+
+.register-box h1 {
+    color: white;
+    font-family: sans-serif bold;
+    font-size: 35px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.register-box h2 {
+    font-family: sans-serif;
+    font-size: small;
+    font-weight: bold;
+    color: #333333;
+    margin-top: 120px;
+    margin-left: 1px;
+    text-align: center;
+}
+
+.register-box h2 a{
+    color: #333333;
+}
+
+.register-box h2 link:hover {
+    color: white;
+}
+
+.register-group {
+    margin-top: 75px;
+    font-size: 18px;
+    font-family: sans-serif;
+    color: white;
+}
+
+.register-group label {
+    color: #333333;
+    font-weight: bold;
+    font-size: 21px;
+    position: relative;
+    left: 3px;
+}
+
+.register-group input {
+    width: auto;
+    height: 27px;
+    padding: 0px 2px;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.register-group small {
+    position: relative;
+    bottom: 10px;
+    font-size: small;
+    left: 3px;
+    color: black;
+}
+
+.register-btn {
+    position: absolute;
+    margin-left: 123px;
+    margin-top: 65px;
+    background-color: #333333 !important;
+}
+
+.login-box {
+    border-radius: 25px;
+    background-color: #338F9A;
+    position: absolute;
+    left: 390px;
+    width: 355px;
+    height: 525px;
+    bottom: 19px;
+}
+
+.login-box h1 {
+    color: white;
+    font-family: sans-serif bold;
+    font-size: 35px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.login-box h2 {
+    font-family: sans-serif;
+    font-size: small;
+    font-weight: bold;
+    color: #333333;
+    margin-top: 260px;
+    margin-left: 20px;
+    text-align: center;
+}
+
+.login-box h2 a{
+    color: #333333;
+}
+
+.login-box h2 :hover {
+    color: white;
+}
+
+.login-group {
+    margin-top: 70px;
+    font-size: 18px;
+    font-family: sans-serif;
+    color: white;
+}
+
+.login-group label {
+    color: #333333;
+    font-weight: bold;
+    font-size: 21px;
+    position: relative;
+    left: 3px;
+}
+
+.login-group input {
+    width: auto;
+    height: 27px;
+    padding: 0px 2px;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.login-group small {
+    position: relative;
+    bottom: 10px;
+    font-size: small;
+    left: 3px;
+    color: black;
+}
+
+
+.login-btn {
+    position: absolute;
+    margin-left: 145px;
+    margin-top: 197px;
+    background-color: #333333 !important;
+    outline: none !important;
+}
+

@@ -1,0 +1,218 @@
+{% extends "pagesstyle.html" %}
+{% block content %}
+{% load static %}
+{% load crispy_forms_tags %}
+    <link rel="stylesheet" href="{% static 'info.css' %}">
+    
+    <div class="main_info">
+        <div class="form_header">
+            <h2><u>Before you start</u></h2>
+        </div>
+        <div class="main_information">
+            <p><b>Hi {{ user.get_username }}</b></p>
+            <p>ESTUDENT web app relies on the information that you put in the forms below in order to work its magic and help with budgeting. The 50/30/20 method will be used as a guideline, to help you figure out how much of your money can go towards different categories.</p>
+            <label>Please enter your budget: </label>
+            <input type="text" id="fullBudget" placeholder="Enter budget...">
+            <button type="submit" onclick="recommendedBudget()" id="calculate_budget_btn">Submit</button>
+            <p><b>The recommended Needs budget: </b></p>
+            <p id="needs">0</p>
+            <p><b>The recommended Wants budget: </b></p>
+            <p id="wants">0</p>
+            <p><b>The recommended Savings budget: </b></p>
+            <p id="savings">0</p>
+        </div>
+    </div>
+    
+    <div class="error_info">
+        {% for message in messages %}
+            <h4><b><center>{{message}}</center></b></h4>
+        {% endfor %}
+    </div>
+
+    <div class="budget_info">
+        <div class="form_header" id="main_budget_form">
+            <h2><u>BUDGET</u></h2>
+        </div>
+        <form class="main_budget_form" method="POST" name="main_budget_form">{% csrf_token %}
+            <ul class="budgetList">
+                <li id="user" class="contact">{{ form.user|as_crispy_field }}</li>
+                <li id="budget1" name="budget1" class="contact">{{ form.budget|as_crispy_field }}</li>
+                <li id="needs1" class="contact">{{ form.needs|as_crispy_field }}</li>
+                <li id="wants1" class="contact">{{ form.wants|as_crispy_field }}</li>
+                <li id="savings1" class="contact">{{ form.savings|as_crispy_field }}</li>
+                <input type="submit" value="Submit Budget Info" class="submit_budget" name="submit_budget">
+            </ul>
+        </form>
+    </div>
+
+
+    <div class="budget_print">
+        <div class="print_header">
+            <h2><u>CURRENT BUDGET</u></h2>
+        </div>
+        <div class="div_info" id="display_budget">
+           <li><b>Budget: </b>{{ budgetI.budget }}</li>
+            <li><b>Needs: </b>{{ budgetI.needs}}</li>
+            <li><b>Wants: </b>{{ budgetI.wants}}</li>
+            <li><b>Savings: </b>{{ budgetI.savings}}</li>
+        </div>
+    </div>
+
+    
+    <div class="needs_info">
+        <div class="form_header">
+            <h2><u>NEEDS</u></h2>
+            <h4>(Please use the same "Needs Budget" value as stated in the current budget)</h4>
+        </div>
+        <form class="main_needs_form" method="POST" name="main_needs_form">{% csrf_token %}
+            <ul class="needsList">
+                <li id="user" class="contact">{{ form2.user|as_crispy_field }}</li>
+                <li id="needs_budget" class="contact">{{ form2.needs_budget|as_crispy_field }}</li>
+                <li id="rent_accomodation" class="contact">{{ form2.rent_accomodation|as_crispy_field }}</li>
+                <li id="food" class="contact">{{ form2.food|as_crispy_field }}</li>
+                <li id="utility_bills" class="contact">{{ form2.utility_bills|as_crispy_field }}</li>
+                <li id="mobile_phone" class="contact">{{ form2.mobile_phone|as_crispy_field }}</li>
+                <li id="compulsory_course_expenses" class="contact">{{ form2.compulsory_course_expenses|as_crispy_field }}</li>
+                <li id="compulsory_travel" class="contact">{{ form2.compulsory_travel|as_crispy_field }}</li>
+                <li id="other_needs" class="contact">{{ form2.other_needs|as_crispy_field }}</li>
+                <input type="submit" value="Submit Needs Info" class="submit_needs" name="submit_needs">
+            </ul>
+        </form>
+    </div>
+
+
+    <div class="needs_print">
+        <div class="print_header">
+            <h2><u>NEEDS INFORMATION</u></h2>
+        </div>
+        <div class="div_info" id="display_needs">
+            <li><b>Needs Budget: </b>{{ needsI.needs_budget }}</li>
+             <li><b>Rent: </b>{{ needsI.rent_accomodation}}</li>
+             <li><b>Food: </b>{{ needsI.food}}</li>
+             <li><b>Utilities: </b>{{ needsI.utility_bills}}</li>
+             <li><b>Mobile Phone: </b>{{ needsI.mobile_phone}}</li>
+             <li><b>Course Expenses: </b>{{ needsI.compulsory_course_expenses}}</li>
+             <li><b>Travel: </b>{{ needsI.compulsory_travel}}</li>
+             <li><b>Other: </b>{{ needsI.other_needs}}</li>
+             <li><b>Spending: </b>{{ needsI.total_left_needs }}</li>
+             <li><b>Leftover Needs Budget: </b>{{ needsI.leftover_need_budget }}</li>
+         </div>
+    </div>
+
+
+    <div class="wants_info">
+        <div class="form_header">
+            <h2><u>WANTS</u></h2>
+            <h4>(Please use the same "Wants Budget" value as stated in the current budget)</h4>
+        </div>
+        <form class="main_wants_form" method="POST" name="main_wants_form">{% csrf_token %}
+            <ul class="wantsList">
+                <li id="user" class="contact">{{ form3.user.label_tag }}{{ form3.user }}</li>
+                <li id="wants_budget" class="contact">{{ form3.wants_budget.label_tag }}{{ form3.wants_budget }}</li>
+                <li id="going_out" class="contact">{{ form3.going_out.label_tag }}{{ form3.going_out }}</li>
+                <li id="takeaway" class="contact">{{ form3.takeaway.label_tag }}{{ form3.takeaway }}</li>
+                <li id="unnecessary_transport" class="contact">{{ form3.unnecessary_transport.label_tag }}{{ form3.unnecessary_transport }}</li>
+                <li id="clothes_personal_care" class="contact">{{ form3.clothes_personal_care.label_tag }}{{ form3.clothes_personal_care }}</li>
+                <li id="other_wants" class="contact">{{ form3.other_wants.label_tag }}{{ form3.other_wants }}</li>
+                <input type="submit" value="Submit Wants Info" class="submit_wants" name="submit_wants">
+            </ul>
+        </form>
+    </div>
+
+
+    <div class="wants_print">
+        <div class="print_header">
+            <h2><u>WANTS INFORMATION</u></h2>
+        </div>
+        <div class="div_info" id="display_wants">
+            <li><b>Wants Budget: </b>{{ wantsI.wants_budget }}</li>
+             <li><b>Going Out: </b>{{ wantsI.going_out}}</li>
+             <li><b>Takeaway: </b>{{ wantsI.takeaway}}</li>
+             <li><b>Unnecessary Transport: </b>{{ wantsI.unnecessary_transport}}</li>
+             <li><b>Personal Care / Clothes: </b>{{ wantsI.clothes_personal_care}}</li>
+             <li><b>Other: </b>{{ wantsI.other_wants}}</li>
+             <li><b>Spending: </b>{{ wantsI.total_left_wants}}</li>
+             <li><b>Leftover Wants Budget: </b>{{ wantsI.leftover_want_budget }}</li>
+         </div>
+    </div>
+
+
+    <div class="savings_info">
+        <div class="form_header">
+            <h2><u>SAVINGS</u></h2>
+            <h4>(Please use the same "Savings Budget" value as stated in the current budget)</h4>
+        </div>
+        <form class="main_savings_form" method="POST" name="main_savings_form">{% csrf_token %}
+            <ul class="savingsList">
+                <li id="user" class="contact">{{ form4.user.label_tag }}{{ form4.user }}</li>
+                <li id="savings_budget" class="contact">{{ form4.savings_budget.label_tag }}{{ form4.savings_budget }}</li>
+                <li id="savings_used" class="contact">{{ form4.savings_used.label_tag }}{{ form4.savings_used }}</li>
+                <input type="submit" value="Submit Savings Info" class="submit_savings" name="submit_savings">
+            </ul>
+        </form>
+    </div>
+
+
+    <div class="savings_print">
+        <div class="print_header">
+            <h2><u>SAVINGS INFORMATION</u></h2>
+        </div>
+        <h5>Please use the "Savings Left" value as your new budget every time you would like to update your Savings
+        </h5>
+        <div class="div_info" id="display_savings">
+            <li><b>Savings Budget: </b>{{ savingsI.savings_budget }}</li>
+             <li><b>Savings Used: </b>{{ savingsI.savings_used}}</li>
+             <li><b>Savings Left: </b>{{ savingsI.total_left_savings}}</li>
+         </div>
+    </div>
+
+
+    <!--<div>
+        {% if user.is_authenticated %}
+        <p>WELCOME {{ user.get_username }}</p>
+        <p>{{ user.get_id }}</p>
+    {% else %}
+        <p>ANONYMOUS USER</p>
+    {% endif %}
+    </div>-->
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+    function recommendedBudget(input){
+        var input = document.getElementById("fullBudget").value;
+        var recommendedNeeds = input/100 * 50;
+        var recommendedNeeds = recommendedNeeds.toFixed(2);
+        var recommendedWants = input/100 * 30;
+        var recommendedWants = recommendedWants.toFixed(2);
+        var recommendedSavings = input/100 * 20;
+        var recommendedSavings = recommendedSavings.toFixed(2);
+        document.getElementById('needs').innerHTML = recommendedNeeds;
+        document.getElementById('wants').innerHTML = recommendedWants;
+        document.getElementById('savings').innerHTML = recommendedSavings;
+    }
+
+    
+    
+
+    // function validateBudget(budget) {
+    //     var budget = document.getElementById("budget1").value;
+    //     var needs = document.getElementById("needs1").value;
+    //     var wants = document.getElementById("wants1").value;
+    //     var savings = document.getElementById("savings1").value;
+    //     var calculation = needs + wants + savings;
+    //     var calculation = calculation.toFixed(2);
+    //     console.log(calculation);
+    //     console.log(budget);
+    //     if (calculation != budget) {
+    //         document.getElementById("main_budget_form").innerHTML = 'The values in the form do not match the Budget value that you have set up. Total for Needs, Wants and Savings needs to equal the Budget';
+    //         document.getElementById("main_budget_form").innerHTML = calculation;
+    //         return false;
+    //         }
+    //     else {
+    //        return true;
+    //         }
+    //     }
+
+</script>
+{% endblock %}

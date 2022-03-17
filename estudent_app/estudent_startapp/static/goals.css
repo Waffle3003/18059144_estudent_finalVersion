@@ -1,0 +1,62 @@
+.goal_form {
+    font-family: sans-serif;
+    position: flex;
+    height: 53vh;
+    margin-left: 10px;
+    margin-right: 10px;
+    background: #BBBBBB;
+    font-size: 25px;
+    text-align: center;
+    
+}
+
+.main_info p{
+    margin: 5px;
+}
+
+.form_header {
+    font-family: sans-serif;
+    color: white;
+    position: flex;
+    height: fit-content;
+    background: #ce5b38;
+    font-size: 25px;
+    text-align: center;
+}
+
+.goal_print {
+    font-family: sans-serif;
+    position: flex;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    height: 150vh;
+    background: #BBBBBB;
+    font-size: 25px;
+    text-align: center;
+    list-style: none;
+    overflow: auto;
+}
+
+.print_header {
+    font-family: sans-serif;
+    color: white;
+    position: flex;
+    height: fit-content;
+    background: #ce5b38;
+    font-size: 25px;
+    text-align: center;
+}
+
+.goalz {
+    font-family: sans-serif;
+    color: white;
+    position: flex;
+    height: fit-content;
+    background: #333333;
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}

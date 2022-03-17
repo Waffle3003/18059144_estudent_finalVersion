@@ -1,0 +1,70 @@
+.graph {
+    font-family: sans-serif;
+    position: flex;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 38vh;
+    background: #BBBBBB;
+    font-size: 25px;
+    text-align: center;
+}
+
+.graph a{
+    position: flex;
+    top: 250px;
+}
+
+.graph p {
+    font-size: 25px;
+}
+
+.graph_report {
+    font-family: sans-serif;
+    font-size: 15px;
+    position: flex;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 60vh;
+    background: #333333;
+    text-align: left;
+    color: white;
+    overflow: auto;
+    list-style: none;
+}
+
+.active_goals {
+    font-family: sans-serif;
+    position: flex;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 80vh;
+    background: #ce5b38;
+    text-align: center;
+    color: white;
+    overflow: auto;
+    margin-bottom: 100vh;
+}
+
+.active_goals h2 {
+    text-align: center;
+    margin: 10px;
+}
+
+.active_goals p{
+    text-align: center;
+    margin: 10px;
+}
+
+.goalz {
+    font-family: sans-serif;
+    color: black;
+    position: flex;
+    height: fit-content;
+    background: #BBBBBB;
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    list-style: none;
+}

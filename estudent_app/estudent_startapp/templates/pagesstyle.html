@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Login & Register</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'pagesstyle.css' %}">
+  </head>
+  <body style="background-color: #333333;">
+
+    <article class="article shadow">
+        <nav>
+            <ul class="navbar" id="mainNavbar">
+
+                <li>
+                    <i class="fas fa-home"></i>
+                    <a href="/estudent/homepage">
+                        <span class="pages">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <i class="fas fa-piggy-bank"></i>
+                    <a href="/estudent/goals">
+                        <span class="pages">Goals</span>
+                    </a>
+                </li>
+                <li>
+                    <i class="fas fa-user"></i>
+                    <a href="/estudent/profile">
+                        <span class="pages">Profile</span>
+                    </a>
+                </li>
+                <!--<li>
+                    <i class="fas fa-cog"></i>
+                    <a href="#">
+                        <span class="pages">Settings</span>
+                    </a>
+                </li>-->
+                <li>
+                    <i class="fas fa-info"></i>
+                    <a href="/estudent/info">
+                        <span class="pages">Info</span>
+                    </a>
+                </li>
+                <li>
+                    <i class="fas fa-sign-out-alt"></i>
+                    <a href="{% url 'logout' %}">
+                        <span class="pages">Sign Out</span>
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+    </article>
+
+    {% block content %}
+    
+    {% endblock %}
+
+  </body>

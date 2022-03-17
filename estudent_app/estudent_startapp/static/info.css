@@ -1,0 +1,169 @@
+.main_info {
+    font-family: sans-serif, 'Verdana';
+    position: flex;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 75vh;
+    background: #BBBBBB;
+    font-size: 16px;
+}
+
+.main_info p{
+    margin: 5px;
+}
+
+.error_info {
+    font-family: sans-serif;
+    color: white;
+    position: flex;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 10vh;
+    background: #333333;
+    font-size: 40px;
+    margin-top: 10px;
+}
+
+.budget_info {
+    font-family: sans-serif;
+    position: flex;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 55vh;
+    background: #BBBBBB;
+    font-size: 25px;
+    margin-top: 10px;
+}
+
+.budgetList {
+    font-family: sans-serif;
+    font-size: 30px;
+    text-align: center;
+    width: 95vw;
+    list-style: none;
+    margin-left: 16px;
+}
+
+.submit_budget {
+    margin-left: 40px;
+}
+
+.needs_info {
+    font-family: sans-serif;
+    position: flex;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    height: 85vh;
+    background: #BBBBBB;
+    font-size: 25px;
+    text-align: center;
+}
+
+.wants_info {
+    font-family: sans-serif;
+    position: flex;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    height: 68vh;
+    background: #BBBBBB;
+    font-size: 25px;
+    text-align: center;
+}
+
+.savings_info {
+    font-family: sans-serif;
+    position: flex;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 45vh;
+    background: #BBBBBB;
+    font-size: 25px;
+    text-align: center;
+}
+
+.form_header {
+    font-family: sans-serif;
+    color: white;
+    position: flex;
+    height: fit-content;
+    background: #ce5b38;
+    font-size: 25px;
+    text-align: center;
+}
+
+.test1 {
+    position: flex;
+    background-color: lawngreen;
+    color: lawngreen;
+    text-align: center;
+    width: 300px;
+    margin-bottom: 500px;
+}
+
+
+
+.budget_print {
+    font-family: sans-serif;
+    position: flex;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    height: 30vh;
+    background: #BBBBBB;
+    font-size: 25px;
+    text-align: center;
+    list-style: none;
+}
+
+.needs_print {
+    font-family: sans-serif;
+    position: flex;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    height: 60vh;
+    background: #BBBBBB;
+    font-size: 25px;
+    text-align: center;
+    list-style: none;
+}
+
+.wants_print {
+    font-family: sans-serif;
+    position: flex;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    height: 50vh;
+    background: #BBBBBB;
+    font-size: 25px;
+    text-align: center;
+    list-style: none;
+}
+
+.savings_print {
+    font-family: sans-serif;
+    position: flex;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    height: 40vh;
+    background: #BBBBBB;
+    font-size: 25px;
+    text-align: center;
+    list-style: none;
+}
+
+.print_header {
+    font-family: sans-serif;
+    color: white;
+    position: flex;
+    height: fit-content;
+    background: #d34419;
+    font-size: 25px;
+    text-align: center;
+}

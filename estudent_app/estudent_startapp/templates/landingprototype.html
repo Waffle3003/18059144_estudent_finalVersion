@@ -1,0 +1,72 @@
+<!-- {% if name %}
+<h1>Hello {{ name }}</h1>
+{% else %}
+<h1>Hello Random Hooman Bean</h1>
+{% endif %} -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'landingprototype.css' %}">
+    
+</head>
+<body style="background-color: #333333;">
+        <div class="mx-auto shadow-lg">
+            <img class='logo' src= "{% static 'logo.png' %}"/>
+            <div class="card-body shadow-lg">
+
+                <div class="register-login-box shadow-lg p-3 mb-5 bg-black bg-body rounded">
+                    <div class="register-box shadow">
+                        <h1>REGISTER</h1>
+                        <form>
+                            <div class="register-group">
+                                <label for="name">Name</label>
+                                <input type="text" class="reg-name" id="register-name" placeholder="Enter First Name">
+                                <small id="name-reg-help" class="form-text text-dark ">Will be used to address you on the web app.</small>
+                                <label for="email">Email</label>
+                                <input type="text" class="reg-email w-auto" id="register-email" placeholder="Enter Email Address">
+                                <small id="email-reg-help" class="form-text text-dark">Your email will never be shared with anyone else.</small>
+                                <label for="username">Username</label>
+                                <input type="text" class="reg-username" id="register-username" placeholder="Enter Username">
+                                <small id="username-reg-help" class="form-text text-dark ">Must be between 3-15 characters long.</small>
+                                <label for="password">Password</label>
+                                <input type="password" class="reg-password" id="register-password" placeholder="Enter Password">
+                                <small id="password-reg-help" class="form-text text-dark ">Must be at least 5 characters.</small>
+                                <button type="button" class="register-btn btn btn-primary btn-lg shadow">Register</button>
+                              </div>
+                        </form>
+                        <h2> By continuing, you agree to ESTUDENTS's <a href="#"> Terms and Conditions </a> and <a href="#"> Privacy Policy </a></h2>
+                    </div>
+
+                    <div class="login-box shadow">
+                        <h1>LOGIN</h1>
+                        <form>
+                            <div class="login-group">
+                                <label for="username">Username</label>
+                                <input type="text" class="login-username" id="login-username" placeholder="Enter Username">
+                                <small id="username-login-help" class="form-text text-dark"> Enter the username you used for registration.</small>
+                                <label for="password">Password</label>
+                                <input type="password" class="login-password" id="login-password" placeholder="Enter Password">
+                                <small id="password-login-help" class="form-text text-dark">Pay attention to capital letters and special characters.</small>
+                                <button type="button" class="login-btn btn btn-primary btn-lg shadow">Login</button>
+                            </div>
+                        </form>
+                        <h2><u><a href="#">Did you forget your password?</a></u></h2>
+                    </div>
+                </div>
+
+            </div>
+        </div>    
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

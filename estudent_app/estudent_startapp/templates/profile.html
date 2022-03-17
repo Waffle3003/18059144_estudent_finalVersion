@@ -1,0 +1,44 @@
+{% extends "pagesstyle.html" %}
+{% block content %}
+{% load static %}
+    <link rel="stylesheet" href="{% static 'profile.css' %}">
+
+    <div class="profile_container">
+        <div class="circle">
+            <a href="#">
+                <i class="fas fa-user"></i>
+            </a>
+        </div>
+    </div>
+    
+    <div class="profile_info">
+      {% if user.is_authenticated %}
+        <table class="profile_information">
+            <thead>
+              <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Active Since</th>
+                <th>User ID</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{ user.get_username }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.date_joined }}</td>
+                <td>{{ userid }}</td>
+              </tr>
+            </tbody>
+          </table>
+      {% endif %}
+          <br>
+          <p>Are you sure you want to delete: {{ user.get_username }}</p>
+          <div class="btn-1">
+            <a href="#" style="color: white;">DELETE PROFILE</a>
+          </div>
+    </div>
+
+
+
+{% endblock %}

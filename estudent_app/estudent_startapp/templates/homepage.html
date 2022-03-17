@@ -1,0 +1,98 @@
+{% extends "newstyle.html" %}
+{% block content %}
+{% load static %}
+    <link rel="stylesheet" href="{% static 'homepage.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+$.ajax({
+    method: "GET",
+    url: '{% url "api-data" %}',
+    success: function(data){
+        console.log(data)
+    },
+    error: function(myerror){
+        console.log("error")
+        console.log(myerror)
+    }
+})
+</script>
+
+<div class="graph">
+    {% if user.is_authenticated %}
+        <p><b>WELCOME {{ user.get_username }}</b></p>
+    {% else %}
+        <p>ANONYMOUS USER</p>
+    {% endif %}
+
+    <p>This space is reserved for your personalised forecasting for the upcoming months. There is currently not enough data for us to be able to create the diagram for you.</p>
+    
+    <!--<a href="#">Sort by:</a>
+    <a href="#">Edit Info</a>-->
+</div>
+
+<div class="graph_report">
+    <h1><u>Progress Report (over last 5 entries)</u></h1>
+    <li><b>Average spending on Needs: {{ avgNeedsFin }}</b></li>
+    <li><b>Average spending on Wants:  {{ avgWantsFin }}</b></li>
+    <li><b>Average Savings: {{ avgSavingsFin }}</b></li>
+    <br>
+    <br>
+    <br>
+    <h1><u>Progress Report (monthly)</u></h1>
+    <canvas id="monthlySpending" width="170" height="80" aria-label="Monthly Spending"></canvas>
+</div>
+
+<div class="active_goals">
+    <h2>Active goals</h2>
+    {% for goal in goals %}
+        <div class="goalz">
+            <li><b>{{ form.name.label_tag }} </b> {{ goal.name }}</li>
+            <li><b>{{ form.amount.label_tag }} </b> {{ goal.amount }}</li>
+            <li><b>{{ form.date_due.label_tag }} </b> {{ goal.date_due }}</li>
+        </div>
+    {% endfor %}
+</div>
+
+<script>
+  
+
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December",];
+  
+    const data = {
+      labels: months,
+      datasets: [{
+        label: 'Total Spending per Month on Needs',
+        backgroundColor: 'rgb(206, 91, 56)',
+        borderColor: 'rgb(206, 91, 56)',
+        data: ['{{ needsJan }}', '{{ needsFeb }}', '{{ needsMar }}', '{{ needsApr }}', '{{ needsMay }}', '{{ needsJun }}', '{{ needsJul }}', '{{ needsAug }}', '{{ needsOct }}', '{{ needsNov }}', '{{ needsDec }}'],
+      },
+      {
+        label: 'Total Spending per Month on Wants',
+        backgroundColor: 'rgb(187, 187, 187)',
+        borderColor: 'rgb(187, 187, 187)',
+        data: ['{{ wantsJan }}', '{{ wantsFeb }}', '{{ wantsMar }}', '{{ wantsApr }}', '{{ wantsMay }}', '{{ wantsJun }}', '{{ wantsJul }}', '{{ wantsAug }}', '{{ wantsOct }}', '{{ wantsNov }}', '{{ wantsDec }}'],
+      },
+      {
+        label: 'Total Spending per Month on Savings',
+        backgroundColor: 'rgb(255,255,153)',
+        borderColor: 'rgb(255,255,153)',
+        data: ['{{ savingsJan }}', '{{ savingsFeb }}', '{{ savingsMar }}', '{{ savingsApr }}', '{{ savingsMay }}', '{{ savingsJun }}', '{{ savingsJul }}', '{{ savingsAug }}', '{{ savingsOct }}', '{{ savingsNov }}', '{{ savingsDec }}'],
+      },]
+    };
+  
+    const config = {
+      type: 'line',
+      data: data,
+      options: {}
+    };
+  </script>
+  <script>
+    const myChart = new Chart(
+      document.getElementById('monthlySpending'),
+      config
+    );
+  </script>
+
+
+{% endblock %}

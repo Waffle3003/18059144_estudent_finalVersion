@@ -1,0 +1,45 @@
+{% extends "pagesstyle.html" %}
+{% block content %}
+{% load static %}
+{% load crispy_forms_tags %}
+    <link rel="stylesheet" href="{% static 'goals.css' %}">
+
+    <div class="goal_form">
+        <div class="form_header" id="goal_form">
+            <h2><u>Goal</u></h2>
+        </div>
+        <form class="main_goal_form" method="POST" name="main_goal_form">{% csrf_token %}
+            <ul class="budgetList">
+                <li id="user" class="contact">{{ form.user|as_crispy_field }}</li>
+                <li id="budget1" name="budget1" class="contact">{{ form.name|as_crispy_field }}</li>
+                <li id="needs1" class="contact">{{ form.amount|as_crispy_field }}</li>
+                <li id="wants1" class="contact">{{ form.date_due|as_crispy_field }}</li>
+                <input type="submit" value="Submit Budget Info" class="submit_goal" name="submit_goal">
+            </ul>
+        </form>
+    </div>
+
+    <div class="goal_print">
+        <div class="print_header">
+            <h2><u>Current Goals</u></h2>
+        </div>
+        {% for message in messages %}
+            <h4><b><center>{{message}}</center></b></h4>
+        {% endfor %}
+        <div class="div_info" id="display_goal">
+            {% for goal in goals %}
+                <div class="goalz">
+                    <li><b>{{ form.name.label_tag }}</b>{{ goal.name }}</li>
+                    <li><b>{{ form.amount.label_tag }}</b>{{ goal.amount }}</li>
+                    <li><b>Goal ID:</b>{{ goal.id }}</li>
+                    <li><b>{{ form.date_due.label_tag }}</b>{{ goal.date_due }}</li>
+                    <h1>{{ goal.myprop }}</h1>
+                    <form method="POST">{% csrf_token %}
+                        <input type="submit" value="Delete" class="delete_goal", name="delete_goal">
+                    </form>
+                </div>
+            {% endfor %}
+         </div>
+    </div>
+
+{% endblock %}
